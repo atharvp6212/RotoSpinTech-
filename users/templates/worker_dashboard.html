@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Dashboard</title>
+    {% comment %} <link rel="stylesheet" href="{% static 'css/worker_dashboard.css' %}"> {% endcomment %}
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'add_raw_material' %}">Add Raw Material</a></li>
+            <li><a href="{% url 'enter_new_order' %}">Enter New Order</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

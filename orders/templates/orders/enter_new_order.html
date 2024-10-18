@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter New Order</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter New Order for {{ selected_sub_part.name }}</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        {{ order_form.as_p }}
+
+        <!-- Quantity Input -->
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+
+        <!-- Color Selection -->
+        <label for="color">Select Color:</label>
+        <select id="color" name="color" required>
+          <!-- This will be populated by JavaScript -->
+          {% if selected_sub_part.colors.all %}
+              {% for color in selected_sub_part.colors.all %}
+                  <option value="{{ color.id }}">{{ color.name }}</option>
+              {% endfor %}
+          {% endif %}
+      </select>
+
+      <button type="submit">Save Order</button>
+
+    </form>
+
+</body>
+</html>

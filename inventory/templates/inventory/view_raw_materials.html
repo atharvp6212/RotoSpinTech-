@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Raw Materials</title>
+</head>
+<body>
+    <h1>Raw Materials</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for raw_material in raw_materials %}
+            <tr>
+                <td>{{ raw_material.name }}</td>
+                <td>{{ raw_material.quantity }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2">No raw materials available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'add_raw_material' %}">Add New Raw Material</a>
+</body>
+</html>

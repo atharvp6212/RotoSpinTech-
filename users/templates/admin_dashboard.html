@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/admin_dashboard.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome, Admin</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'add_worker' %}">Add Worker</a></li>
+            <li><a href="{% url 'enter_stock' %}">Enter Stock</a></li>
+            <li><a href="{% url 'select_sub_part' %}">Enter New Order</a></li>
+            <li><a href="{% url 'generate_reports' %}">Generate Reports</a></li>
+            <li><a href="{% url 'view_raw_materials' %}">View Raw Materials</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

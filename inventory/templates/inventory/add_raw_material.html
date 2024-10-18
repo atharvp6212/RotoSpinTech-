@@ -1,0 +1,16 @@
+<!-- inventory/templates/inventory/add_raw_material.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Raw Material</title>
+</head>
+<body>
+    <h1>Add Raw Material</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Raw Material</button>
+    </form>
+</body>
+</html>
