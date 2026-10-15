@@ -13,6 +13,9 @@ algorithms, query optimization and performance analysis.
 - Linear-time material aggregation across a product's sub-parts
 - Stock-versus-requirement planning with shortage calculation
 - Automated tests for aggregation, scaling and validation
+- Multi-level DAG expansion with cycle detection
+- EOQ, safety-stock reorder points and minimum-cost supplier allocation
+- Deterministic time-and-memory benchmark tooling
 
 ## Algorithm
 
@@ -21,6 +24,10 @@ single filtered query and one pass over the result. Its aggregation cost is
 `O(m)` time and `O(r)` auxiliary space, where `r` is the number of distinct raw
 materials. Future work will compare this baseline with recursive CTEs and cached
 plans for multi-level bills of materials.
+
+Run `python benchmarks/bom_benchmark.py --depths 10 100 1000` for a
+reproducible scalability experiment. See `ARCHITECTURE.md` and `LIMITATIONS.md`
+for assumptions that must accompany any reported result.
 
 ## Run locally
 
